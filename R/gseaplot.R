@@ -51,10 +51,10 @@ gseaplot.gseaResult <- function (x, geneSetID, by = "all", title = "",
                                     colour = color.vline, linetype = "dashed")
         p.res <- p.res + ylab("Running Enrichment Score")
         p.res <- p.res + geom_hline(yintercept = 0)
-        pd <- x[geneSetID, c("Description", "NES", "pvalue", "qvalue")]
+        pd <- x[geneSetID, c("NES", "pvalue", "qvalue")]
         # pd <- pd[order(pd[,1], decreasing=FALSE),]
-        rownames(pd) <- pd$Description
-        pd <- pd[,-1]
+        # rownames(pd) <- pd$Description
+        # pd <- pd[,-1]
         # pd <- round(pd, 4)
         for (i in seq_len(ncol(pd))) {
             pd[, i] <- format(pd[, i], digits = 4)#此处可以设置小数点位数
